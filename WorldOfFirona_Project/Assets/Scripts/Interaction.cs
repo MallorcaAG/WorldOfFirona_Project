@@ -46,9 +46,17 @@ public class Interaction : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        onPlayerExitInteractableArea.Raise(this, 2);
+
+        interactable = false;
+        btnpressed = false;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag(playerTag))
+        if(other.CompareTag(playerTag) && enabled)
         {
             onPlayerEnterInteractableArea.Raise(this, 0);
 
@@ -58,7 +66,7 @@ public class Interaction : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag(playerTag))
+        if(other.CompareTag(playerTag) && enabled)
         {
             onPlayerExitInteractableArea.Raise(this, 0);
 
@@ -67,5 +75,15 @@ public class Interaction : MonoBehaviour
         }
     }
 
-
+    public void toggleBtnpressed()
+    {
+        if(btnpressed)
+        {
+            btnpressed = false;
+        }
+        else
+        {
+            btnpressed = true;
+        }
+    }
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "new Quest",menuName = "Quest")]
 public class QuestUIData : ScriptableObject
 {
+    public string questID;
+    [Space]
     public string questTitle;
     [TextArea] public string questDescription;
 
@@ -13,6 +15,7 @@ public class QuestUIData : ScriptableObject
     public string questTaskDesc;    
         private int questTaskReq;
 
+    
     public string questRewardDesc;  
         private QuestRewardType questRewardType; 
         private int questRewardQuantity;

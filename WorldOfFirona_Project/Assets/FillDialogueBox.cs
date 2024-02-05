@@ -12,7 +12,7 @@ public class FillDialogueBox : MonoBehaviour
 
     private void OnEnable()
     {
-        nameTxt.text = diologueData.name;
+        nameTxt.text = diologueData.NPC_name;
         dialogueTxt.text = diologueData.message;
     }
 

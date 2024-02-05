@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69eaa053e705cc943827fbeaede2ea57, type: 3}
-  m_Name: Test1
+  m_Script: {fileID: 11500000, guid: 6f2c8ad77b3a3e64fa438d6481517e65, type: 3}
+  m_Name: PlayerCompletedQuest
   m_EditorClassIdentifier: 
-  questID: TESTQ01
-  questTitle: Quest Test 1
-  questDescription: "Goodbye World\t"
-  questType: 0
-  questTaskDesc: kill yourself
-  questRewardDesc: not game over ;)
+  listeners: []

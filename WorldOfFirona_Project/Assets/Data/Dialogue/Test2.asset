@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69eaa053e705cc943827fbeaede2ea57, type: 3}
-  m_Name: Test1
+  m_Script: {fileID: 11500000, guid: e736eeff6b359634f8cc87349808cd71, type: 3}
+  m_Name: Test2
   m_EditorClassIdentifier: 
-  questID: TESTQ01
-  questTitle: Quest Test 1
-  questDescription: "Goodbye World\t"
-  questType: 0
-  questTaskDesc: kill yourself
-  questRewardDesc: not game over ;)
+  NPC_name: Evil Box
+  message: 'You''re still alive?!
+
+    DASS CRAAYYYZZZEEEEE!!!!'
