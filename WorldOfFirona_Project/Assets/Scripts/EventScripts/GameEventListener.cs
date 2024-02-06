@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 [System.Serializable]
 public class CustomGameEvent : UnityEvent<Component, object> { }
+public class CustomGameEventArray : UnityEvent<Component, object[]> { }
 
 public class GameEventListener : MonoBehaviour
 {
