@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-
+using UnityEngine.PlayerLoop;
 
 public enum BattleState
 {
@@ -22,18 +24,28 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private Transform[] playerBattlePosition;
     [SerializeField] private Transform[] enemyBattlePosition;
 
-    PlayerUnit[] playerUnit = new PlayerUnit[3];
-    EnemyUnit[] enemyUnit = new EnemyUnit[3];
+    [SerializeField] CombatHUDManager ui;
+    [Space]
+    [SerializeField] private GameObject winScreen;
+    [SerializeField] private GameObject loseScreen;
+    [Space]
 
-    string buttonID, targetID;
+
+    List<PlayerUnit> playerUnits = new List<PlayerUnit>();
+    List<EnemyUnit> enemyUnits = new List<EnemyUnit>();
+
+    string targetID;
+    public CombatSkillData action;
+    public int actor;
+    public Unit target;
+    int playerTurnCount = 0;
 
     [Header("Events")]
     public GameEvent sendPlayerDataToHUD;
     public GameEvent sendEnemyDataToHUD;
     public GameEvent updateHUD;
     public GameEvent characterMoveForward;
-
-
+    public GameEvent characterMoveBackward;
 
 
     // Start is called before the first frame update
@@ -43,18 +55,29 @@ public class CombatManager : MonoBehaviour
         StartCoroutine(initializeBattle());
     }
 
+    private void FixedUpdate()
+    {
+        //CHECK FOR WIN CONDITION
+        checkPlayerWinCondition();
+        checkPlayerLoseCondition();
+    }
+
     IEnumerator initializeBattle()
     {
         for(int i = 0; i < playerParty.Length; i++)
         {
             GameObject playerGO = Instantiate(playerParty[i], playerBattlePosition[i]);
-            playerUnit[i] = playerGO.GetComponent<PlayerUnit>();
+            //playerUnit[i] = playerGO.GetComponent<PlayerUnit>();
+
+            playerUnits.Add(playerGO.GetComponent<PlayerUnit>());
         }
 
         for (int i = 0; i < enemyParty.Length; i++)
         {
             GameObject enemyGO = Instantiate(enemyParty[i], enemyBattlePosition[i]);
-            enemyUnit[i] = enemyGO.GetComponent<EnemyUnit>();
+            //enemyUnit[i] = enemyGO.GetComponent<EnemyUnit>();
+
+            enemyUnits.Add(enemyGO.GetComponent<EnemyUnit>());
         }
 
         initializeHUD();
@@ -62,19 +85,21 @@ public class CombatManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         state = BattleState.PLAYERTURN;
-        PlayerTurn(1);
+        playerTurnCount = 1;
+
+        PlayerTurn(playerTurnCount);
     }
 
     void initializeHUD()
     {
-        for(int i = 0; i < playerUnit.Length; i++)
+        for(int i = 0; i < playerUnits.Count; i++)
         {
-            sendPlayerDataToHUD.Raise(this, playerUnit[i]);
+            sendPlayerDataToHUD.Raise(this, playerUnits.ElementAt(i));
         }
 
-        for (int j = 0; j < enemyUnit.Length; j++)
+        for (int j = 0; j < enemyUnits.Count; j++)
         {
-            sendEnemyDataToHUD.Raise(this, enemyUnit[j]);
+            sendEnemyDataToHUD.Raise(this, enemyUnits.ElementAt(j));
         }
 
         updateHUD.Raise(this, 0);
@@ -82,21 +107,39 @@ public class CombatManager : MonoBehaviour
 
     void PlayerTurn(int characterTurn)
     {
-        if(characterTurn == 1)
+        if(characterTurn == 99)
+        {
+            updateHUD.Raise(this, 99);
+        }
+        if (characterTurn == 1)
         {
             characterMoveForward.Raise(this, 1);
             updateHUD.Raise(this, 1);
         }
+        else if(characterTurn == 2)
+        {
+            characterMoveForward.Raise(this, 2);
+            updateHUD.Raise(this, 2);
+            updateHUD.Raise(this, 3);
+
+        }
+        else if(characterTurn == 3)
+        {
+            characterMoveForward.Raise(this, 3);
+            updateHUD.Raise(this, 4);
+            updateHUD.Raise(this, 5);
+        }
     }
 
-    public void getSelectedAction(Component sender, object btnID)
+    public void getSelectedAction(Component sender, object data)
     {
         if(state != BattleState.PLAYERTURN)
         {
             return;
         }
-        buttonID = ((int)btnID).ToString();
-        Debug.Log(buttonID[0] + " " + buttonID[1] + " " + buttonID[2]);
+        //actor = (PlayerUnit)userID;
+
+
     }
 
     public void getSelectedTarget(Component sender, object trgtID)
@@ -107,58 +150,248 @@ public class CombatManager : MonoBehaviour
         }
         //updateHUD.Raise(this, 2);
         targetID = ((int)trgtID).ToString();
-        Debug.Log(targetID[0] + " " + targetID[1] + " " + targetID[2]);
-        PlayerAction(buttonID, targetID);
+        //Debug.Log(targetID[0] + " " + targetID[1] + " " + targetID[2]);
+        PlayerAction(action, targetID, actor);
+
+        //CHECK FOR WIN CONDITION
+        checkPlayerWinCondition();
+        checkPlayerLoseCondition();
+
+
+        //END TURN
+        StartCoroutine(EndPlayerCharacterTurn());
     }
 
-    void PlayerAction(string action, string target)
+    void PlayerAction(CombatSkillData actionID, string targetID, int actor)
     {
-        //Who is doing the action
-        if (action[0].Equals("1"))
-        {
-
-        }
-        else if (action[0].Equals("2"))
-        {
-
-        }
-        else if (action[0].Equals("3"))
-        {
-
-        }
         //Who is the action being done upon
-        if (target[1].Equals("1"))
+        if (targetID[1] == '1')
         {
             //Action done to Team
-            if (target[2].Equals("0"))
+            if (targetID[2] == '0')
             {
-
+                target = playerUnits.ElementAt(0);
             }
-            else if (target[2].Equals("1"))
+            else if (targetID[2]== '1')
             {
-
+                target = playerUnits.ElementAt(1);
             }
-            else if (target[2].Equals("2"))
+            else if (targetID[2] == '2')
             {
-
+                target = playerUnits.ElementAt(2);
             }
         }
-        else if (target[1].Equals("2"))
+        else if (targetID[1] == '2')
         {
             //Action done to Opponent
-            if (target[2].Equals("0"))
+            if (targetID[2] == '0')
             {
-
+                target = enemyUnits.ElementAt(0);
             }
-            else if (target[2].Equals("1"))
+            else if (targetID[2] == '1')
             {
-
+                target = enemyUnits.ElementAt(1);
             }
-            else if (target[2].Equals("2"))
+            else if (targetID[2] == '2')
             {
-
+                target = enemyUnits.ElementAt(2);
             }
         }
+
+
+        //What is the Action
+        if (actionID.skillType == SkillType.Magic)
+        {
+            if (actionID.skillFunction == SkillFunction.Heal)
+            {
+                playerUnits.ElementAt(actor).subtractMP(actionID.skillRequirement, playerUnits.ElementAt(actor));
+
+                if (target != null)
+                {
+                    target.regenHP(actionID.skillValue, target);
+                }
+            }
+            if (actionID.skillFunction == SkillFunction.Damage)
+            {
+                playerUnits.ElementAt(actor).subtractMP(actionID.skillRequirement, playerUnits.ElementAt(actor));
+                
+                if(target!=null)
+                {
+                    target.dealDamage(actionID.skillValue, target);
+                }
+            }
+            if (actionID.skillFunction == SkillFunction.RechargeMana)
+            {
+                playerUnits.ElementAt(actor).subtractMP(actionID.skillRequirement, playerUnits.ElementAt(actor));
+
+                if (target != null)
+                {
+                    try
+                    {
+                        PlayerUnit t = (PlayerUnit)target;
+
+                        t.addMP(actionID.skillValue, t);
+                    }
+                    catch(InvalidCastException e)
+                    {
+                        //Do nothing
+                    }
+                    //target.dealDamage(actionID.skillValue, target);
+                }
+            }
+
+        }
+        else if (actionID.skillType == SkillType.Attack)
+        {
+            target.dealDamage(actionID.skillValue, target);
+        }
+
+        //CHECK FOR WIN CONDITION
+        checkPlayerWinCondition();
+        checkPlayerLoseCondition();
     }
+
+    IEnumerator EndPlayerCharacterTurn()
+    {
+        characterMoveBackward.Raise(this, playerTurnCount);
+
+        playerTurnCount++;
+
+        if(playerTurnCount > playerUnits.Count)
+        {
+            state = BattleState.ENEMYTURN;
+
+            playerTurnCount = 99;
+            PlayerTurn(playerTurnCount);
+            playerTurnCount = 0;
+
+            yield return new WaitForSeconds(0.5f);
+
+            //RUN GAME EVENT THAT SAYS ITS THE OPPONENT'S TURN NOW
+            Debug.Log("PLAYER TURN HAS ENDED");
+            StartCoroutine(startEnemyTurn());
+
+            yield break;
+        }
+
+        //CHECK FOR WIN CONDITION
+        checkPlayerWinCondition();
+        checkPlayerLoseCondition();
+
+        Debug.Log("Next Player Character Turn ");
+        PlayerTurn(playerTurnCount);
+
+
+
+    }
+
+    public IEnumerator startEnemyTurn()
+    {
+        if(state  != BattleState.ENEMYTURN)
+        {
+            yield break;
+        }
+        for(int i = 0; i < enemyUnits.Count; i++)
+        {
+            //IF UNIT IS NOT DEAD
+            if (!(enemyUnits.ElementAt(i).unitIsDead())) 
+            {
+                Debug.Log("ALIVE:"+enemyUnits.ElementAt(i).unitIsDead());
+
+                yield return new WaitForSeconds(1f);
+
+                Debug.Log("===It is "+ enemyUnits.ElementAt(i).getUnitName()+"'s turn===");
+
+                int actionChoice = UnityEngine.Random.Range(0, enemyUnits.ElementAt(i).combatSkills.Length);
+                int target = UnityEngine.Random.Range(0, playerUnits.Count);
+
+                
+
+                Debug.Log("actionChoice index "+actionChoice);
+                Debug.Log("targetting player number " + target);
+
+                int damage = enemyUnits.ElementAt(i).combatSkills[actionChoice].skillValue;
+                playerUnits.ElementAt(target).dealDamage(damage, playerUnits.ElementAt(target));
+
+
+            }
+
+            //CHECK FOR WIN CONDITION
+            checkPlayerWinCondition();
+            checkPlayerLoseCondition();
+
+
+        }
+
+        Debug.Log("ENEMY TURN HAS ENDED");
+
+        state = BattleState.PLAYERTURN;
+
+        
+
+        playerTurnCount = 1;
+        PlayerTurn(playerTurnCount);
+    }
+
+    
+    void checkPlayerWinCondition()
+    {
+        int deadEnemies = 0;
+        for(int i = 0; i < enemyUnits.Count; i++)
+        {
+            //CHECK IF ANY ENEMIES ARE STILL ALIVE
+            if(!(enemyUnits.ElementAt(i).unitIsDead()))
+            {
+                return;
+            }
+
+            deadEnemies++;
+        }
+
+        if(deadEnemies == enemyUnits.Count)
+        {
+            state = BattleState.WON;
+        }
+
+        if (state  == BattleState.WON)
+        {
+            Debug.Log("THE PLAYER HAS WON");
+            Instantiate(winScreen);
+
+            Time.timeScale = 0f;
+        }
+    }
+    
+    void checkPlayerLoseCondition()
+    {
+        int deadPlayers = 0;
+        for (int i = 0; i < playerUnits.Count; i++)
+        {
+            //CHECK IF PARTY CHARACTERS ARE STILL ALIVE
+            if (!(playerUnits.ElementAt(i).unitIsDead()))
+            {
+                return;
+            }
+
+            deadPlayers++;
+            
+        }
+
+        if (deadPlayers == playerUnits.Count)
+        {
+            state = BattleState.LOST;
+        }
+
+        if (state == BattleState.LOST)
+        {
+            Debug.Log("THE PLAYER HAS LOST");
+            Instantiate(loseScreen);
+
+            Time.timeScale = 0f;
+        }
+    }
+
+
+
 
 }

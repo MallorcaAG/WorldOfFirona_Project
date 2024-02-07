@@ -78,6 +78,8 @@ MonoBehaviour:
   currentHP: 16
   combatSkills:
   - {fileID: 11400000, guid: 2bc352c29b22803448a96d976e495c8f, type: 2}
+  onHealthChanged: {fileID: 11400000, guid: 1c914faffd97e7e4eb7f270dccf7734b, type: 2}
+  onDefeat: {fileID: 11400000, guid: e591ffb14b717ec40b73df6390ddbd6c, type: 2}
 --- !u!1 &3432678983043697970
 GameObject:
   m_ObjectHideFlags: 0

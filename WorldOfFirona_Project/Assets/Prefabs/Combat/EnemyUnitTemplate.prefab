@@ -77,11 +77,8 @@ MonoBehaviour:
   maxHP: 0
   currentHP: 0
   combatSkills: []
-  attack: 0
-  defense: 0
-  speed: 0
-  magicAttack: 0
-  magicDefense: 0
+  onHealthChanged: {fileID: 11400000, guid: 1c914faffd97e7e4eb7f270dccf7734b, type: 2}
+  onDefeat: {fileID: 11400000, guid: e591ffb14b717ec40b73df6390ddbd6c, type: 2}
 --- !u!1 &8060454689108825129
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,8 @@ using UnityEngine;
 public class GameEvent : ScriptableObject
 {
     public List<GameEventListener> listeners = new List<GameEventListener>();
+    public List<GameEventListener2> listeners2 = new List<GameEventListener2>();
+
 
     //Raise event through different methods signatures
     public void Raise(Component sender, object data)
@@ -13,6 +15,14 @@ public class GameEvent : ScriptableObject
         for(int i  = 0; i < listeners.Count; i++)
         {
             listeners[i].OnEventRaise(sender, data);
+        }
+    }
+
+    public void Raise(Component sender, object data, object data2)
+    {
+        for (int i = 0; i < listeners.Count; i++)
+        {
+            listeners2[i].OnEventRaise(sender, data, data2);
         }
     }
 

@@ -118,6 +118,9 @@ GameObject:
   - component: {fileID: 4694751040347358747}
   - component: {fileID: 4187512134259968312}
   - component: {fileID: 4444808355964117739}
+  - component: {fileID: -1088813766367725179}
+  - component: {fileID: 1289181969007937010}
+  - component: {fileID: -1095568824024462220}
   m_Layer: 0
   m_Name: TestPlayerUnit_2
   m_TagString: Untagged
@@ -187,5 +190,77 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 02d8e3f81525a2a45b685417e6a952e3, type: 2}
   - {fileID: 11400000, guid: bca3b72e1f38ccc45a9838b129439ebc, type: 2}
   - {fileID: 11400000, guid: 53d644feb438db1408c082ab127c545d, type: 2}
+  onHealthChanged: {fileID: 11400000, guid: 1c914faffd97e7e4eb7f270dccf7734b, type: 2}
+  onDefeat: {fileID: 11400000, guid: e591ffb14b717ec40b73df6390ddbd6c, type: 2}
   maxMP: 7
   currentMP: 7
+  onManaChanged: {fileID: 11400000, guid: 2cb32ae99eb8a9f44b719710132943db, type: 2}
+--- !u!114 &-1088813766367725179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5352879384466121160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bdd084dba0d0a74a983c53c27760be3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCharacterNumber: 2
+--- !u!114 &1289181969007937010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5352879384466121160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e15d166c311a84c8e225527904cce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 048b3c57d153a1541a5954812c340f93, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -1088813766367725179}
+        m_TargetAssemblyTypeName: MoveCharacterPosition, Assembly-CSharp
+        m_MethodName: moveForward
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-1095568824024462220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5352879384466121160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e15d166c311a84c8e225527904cce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 09495a36de810e94f97d05216f0e78cf, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -1088813766367725179}
+        m_TargetAssemblyTypeName: MoveCharacterPosition, Assembly-CSharp
+        m_MethodName: moveBackward
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

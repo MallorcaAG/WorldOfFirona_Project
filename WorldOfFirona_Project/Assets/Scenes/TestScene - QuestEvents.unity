@@ -132,6 +132,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1013067}
+  - component: {fileID: 1013068}
+  - component: {fileID: 1013069}
   m_Layer: 5
   m_Name: ManaBar
   m_TagString: Untagged
@@ -160,6 +162,48 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 14.2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1013068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6592efc1c8c56744914f39c16049dff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manaSlider: {fileID: 644404584}
+  myName: {fileID: 1459777541}
+--- !u!114 &1013069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e15d166c311a84c8e225527904cce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 2cb32ae99eb8a9f44b719710132943db, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1013068}
+        m_TargetAssemblyTypeName: UpdateManaBar, Assembly-CSharp
+        m_MethodName: updateSliderDisplay
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &33101722
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,6 +387,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 67198647}
+  - component: {fileID: 67198650}
+  - component: {fileID: 67198649}
   m_Layer: 5
   m_Name: ManaBar
   m_TagString: Untagged
@@ -371,6 +417,48 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 14.2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &67198649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67198646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e15d166c311a84c8e225527904cce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 2cb32ae99eb8a9f44b719710132943db, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 67198650}
+        m_TargetAssemblyTypeName: UpdateManaBar, Assembly-CSharp
+        m_MethodName: updateSliderDisplay
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &67198650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67198646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6592efc1c8c56744914f39c16049dff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manaSlider: {fileID: 157399887}
+  myName: {fileID: 425917360}
 --- !u!1 &89017013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1246,6 +1334,7 @@ MonoBehaviour:
   - {fileID: 38976779}
   - {fileID: 951799190}
   - {fileID: 2018837825}
+  combatManager: {fileID: 611391167}
   onButtonPressed: {fileID: 11400000, guid: 93ff29e742277d14a83a5b4ec61ffa13, type: 2}
   onTargetSelected: {fileID: 11400000, guid: dfd0b3192a9e11844a9ff6ea3b2feff1, type: 2}
 --- !u!114 &217145186
@@ -2687,6 +2776,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 449829634}
+  - component: {fileID: 449829635}
+  - component: {fileID: 449829636}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -2715,6 +2806,48 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 30}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &449829635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449829633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb5f954e6eaa9948b7199a45c4f0c4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 1897369355}
+  myName: {fileID: 425917360}
+--- !u!114 &449829636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449829633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e15d166c311a84c8e225527904cce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 1c914faffd97e7e4eb7f270dccf7734b, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 449829635}
+        m_TargetAssemblyTypeName: UpdateHealthBar, Assembly-CSharp
+        m_MethodName: updateSliderDisplay
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &456608595
 GameObject:
   m_ObjectHideFlags: 0
@@ -3149,6 +3282,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 486754896}
+  - component: {fileID: 486754898}
+  - component: {fileID: 486754897}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -3177,6 +3312,48 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -15}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &486754897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486754895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e15d166c311a84c8e225527904cce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 1c914faffd97e7e4eb7f270dccf7734b, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 486754898}
+        m_TargetAssemblyTypeName: UpdateHealthBar, Assembly-CSharp
+        m_MethodName: updateSliderDisplay
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &486754898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486754895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb5f954e6eaa9948b7199a45c4f0c4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 993582490}
+  myName: {fileID: 1109045071}
 --- !u!1 &528472922
 GameObject:
   m_ObjectHideFlags: 0
@@ -3653,8 +3830,9 @@ GameObject:
   m_Component:
   - component: {fileID: 611391168}
   - component: {fileID: 611391167}
-  - component: {fileID: 611391169}
+  - component: {fileID: 611391171}
   - component: {fileID: 611391170}
+  - component: {fileID: 611391172}
   m_Layer: 0
   m_Name: CombatManager
   m_TagString: Untagged
@@ -3690,10 +3868,17 @@ MonoBehaviour:
   - {fileID: 1696421894492626525}
   - {fileID: 2133352345}
   - {fileID: 185459933}
+  ui: {fileID: 217145185}
+  winScreen: {fileID: 2483807541042448262, guid: 1a6b7bee5a84f084ba043616249f9902, type: 3}
+  loseScreen: {fileID: 8459484225565959626, guid: 767b402df3102214a82009804aa12c1b, type: 3}
+  action: {fileID: 0}
+  actor: -1
+  target: {fileID: 0}
   sendPlayerDataToHUD: {fileID: 11400000, guid: dc5ec11de80e93345bcc2a77460245aa, type: 2}
   sendEnemyDataToHUD: {fileID: 11400000, guid: 5dcbeeb9a3bb5dd4dab760ed4d0d2031, type: 2}
   updateHUD: {fileID: 11400000, guid: 9892d15a30af48d4aa6e795d572851fe, type: 2}
   characterMoveForward: {fileID: 11400000, guid: 048b3c57d153a1541a5954812c340f93, type: 2}
+  characterMoveBackward: {fileID: 11400000, guid: 09495a36de810e94f97d05216f0e78cf, type: 2}
 --- !u!4 &611391168
 Transform:
   m_ObjectHideFlags: 0
@@ -3709,7 +3894,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &611391169
+--- !u!114 &611391170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611391166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e15d166c311a84c8e225527904cce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: dfd0b3192a9e11844a9ff6ea3b2feff1, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 611391167}
+        m_TargetAssemblyTypeName: CombatManager, BattleSystem
+        m_MethodName: getSelectedTarget
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &611391171
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3737,7 +3950,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &611391170
+--- !u!114 &611391172
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3749,13 +3962,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e15d166c311a84c8e225527904cce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: dfd0b3192a9e11844a9ff6ea3b2feff1, type: 2}
+  gameEvent: {fileID: 11400000, guid: e591ffb14b717ec40b73df6390ddbd6c, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 611391167}
         m_TargetAssemblyTypeName: CombatManager, BattleSystem
-        m_MethodName: getSelectedTarget
+        m_MethodName: onUnitDeath
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5050,6 +5263,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 752678392}
+  - component: {fileID: 752678393}
+  - component: {fileID: 752678394}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -5078,6 +5293,48 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 30}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &752678393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752678391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb5f954e6eaa9948b7199a45c4f0c4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 2073329329}
+  myName: {fileID: 1459777541}
+--- !u!114 &752678394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752678391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e15d166c311a84c8e225527904cce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 1c914faffd97e7e4eb7f270dccf7734b, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 752678393}
+        m_TargetAssemblyTypeName: UpdateHealthBar, Assembly-CSharp
+        m_MethodName: updateSliderDisplay
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &765485551
 GameObject:
   m_ObjectHideFlags: 0
@@ -6743,6 +7000,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 945304355}
+  - component: {fileID: 945304357}
+  - component: {fileID: 945304356}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -6771,6 +7030,48 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -15}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &945304356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945304354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e15d166c311a84c8e225527904cce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 1c914faffd97e7e4eb7f270dccf7734b, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 945304357}
+        m_TargetAssemblyTypeName: UpdateHealthBar, Assembly-CSharp
+        m_MethodName: updateSliderDisplay
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &945304357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945304354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb5f954e6eaa9948b7199a45c4f0c4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 1719434747}
+  myName: {fileID: 1113074027}
 --- !u!1 &948176488
 GameObject:
   m_ObjectHideFlags: 0
@@ -8477,7 +8778,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.0000038873914, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 250, y: 225}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1200127620
@@ -10265,6 +10566,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1451787798}
+  - component: {fileID: 1451787799}
+  - component: {fileID: 1451787800}
   m_Layer: 5
   m_Name: ManaBar
   m_TagString: Untagged
@@ -10293,6 +10596,48 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 14.2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1451787799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451787797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6592efc1c8c56744914f39c16049dff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manaSlider: {fileID: 288616424}
+  myName: {fileID: 1848827621}
+--- !u!114 &1451787800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451787797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e15d166c311a84c8e225527904cce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 2cb32ae99eb8a9f44b719710132943db, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1451787799}
+        m_TargetAssemblyTypeName: UpdateManaBar, Assembly-CSharp
+        m_MethodName: updateSliderDisplay
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1459777539
 GameObject:
   m_ObjectHideFlags: 0
@@ -12392,7 +12737,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: -250, y: 0}
   m_SizeDelta: {x: 250, y: 225}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1776698855
@@ -14102,6 +14447,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1940379351}
+  - component: {fileID: 1940379353}
+  - component: {fileID: 1940379352}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -14130,6 +14477,48 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -15}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1940379352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940379350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e15d166c311a84c8e225527904cce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 1c914faffd97e7e4eb7f270dccf7734b, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1940379353}
+        m_TargetAssemblyTypeName: UpdateHealthBar, Assembly-CSharp
+        m_MethodName: updateSliderDisplay
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1940379353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940379350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb5f954e6eaa9948b7199a45c4f0c4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 2060935451}
+  myName: {fileID: 2082727414}
 --- !u!1 &2018837825
 GameObject:
   m_ObjectHideFlags: 0
@@ -14889,6 +15278,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2081970012}
+  - component: {fileID: 2081970013}
+  - component: {fileID: 2081970014}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -14917,6 +15308,48 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 30}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2081970013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081970011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb5f954e6eaa9948b7199a45c4f0c4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 1797262347}
+  myName: {fileID: 1848827621}
+--- !u!114 &2081970014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081970011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e15d166c311a84c8e225527904cce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 1c914faffd97e7e4eb7f270dccf7734b, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2081970013}
+        m_TargetAssemblyTypeName: UpdateHealthBar, Assembly-CSharp
+        m_MethodName: updateSliderDisplay
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2082727412
 GameObject:
   m_ObjectHideFlags: 0
@@ -15526,7 +15959,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -250, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 250, y: 225}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2138024280

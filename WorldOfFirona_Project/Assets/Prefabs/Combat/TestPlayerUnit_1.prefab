@@ -83,8 +83,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c7883b4a4ec961544b71e5d8f3b24ed7, type: 2}
   - {fileID: 11400000, guid: 2bc352c29b22803448a96d976e495c8f, type: 2}
   - {fileID: 11400000, guid: 01a25f6c770fd8940897e5174d213f6c, type: 2}
-  maxMP: 10
-  currentMP: 10
+  onHealthChanged: {fileID: 11400000, guid: 1c914faffd97e7e4eb7f270dccf7734b, type: 2}
+  onDefeat: {fileID: 11400000, guid: e591ffb14b717ec40b73df6390ddbd6c, type: 2}
+  maxMP: 11
+  currentMP: 11
+  onManaChanged: {fileID: 11400000, guid: 2cb32ae99eb8a9f44b719710132943db, type: 2}
 --- !u!114 &616106352728246408
 MonoBehaviour:
   m_ObjectHideFlags: 0
