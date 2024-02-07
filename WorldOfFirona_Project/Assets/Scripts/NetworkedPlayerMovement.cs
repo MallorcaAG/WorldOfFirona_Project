@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class NetworkedPlayerMovement : NetworkBehaviour
 {
 
 
@@ -55,6 +55,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!IsOwner)
+            return;
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
         PlayerInputs();
@@ -73,6 +75,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!IsOwner)
+            return;
         MovePlayer();
     }
 
