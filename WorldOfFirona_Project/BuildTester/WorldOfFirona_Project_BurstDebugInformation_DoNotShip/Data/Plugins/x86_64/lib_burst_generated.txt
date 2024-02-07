@@ -19,8 +19,8 @@ Library: E:\WorldOfFirona_Project\WorldOfFirona_Project\Temp\BurstOutput\Data\Pl
 --assembly-defines=Unity.Netcode.Runtime;
 --assembly-defines=Unity.Multiplayer.Tools.MetricTestData;
 --assembly-defines=Unity.TextMeshPro;
---assembly-defines=Unity.Profiling.Core;
 --assembly-defines=Unity.Multiplayer.Tools.Common;
+--assembly-defines=Unity.Profiling.Core;
 --assembly-defines=Unity.Burst;
 --assembly-defines=Unity.VisualScripting.Core;
 --assembly-defines=BattleSystem;
@@ -173,8 +173,8 @@ Library: E:\WorldOfFirona_Project\WorldOfFirona_Project\Temp\BurstOutput\Data\Pl
 --assembly-defines=Unity.Netcode.Runtime;
 --assembly-defines=Unity.Multiplayer.Tools.MetricTestData;
 --assembly-defines=Unity.TextMeshPro;
---assembly-defines=Unity.Profiling.Core;
 --assembly-defines=Unity.Multiplayer.Tools.Common;
+--assembly-defines=Unity.Profiling.Core;
 --assembly-defines=Unity.Burst;
 --assembly-defines=Unity.VisualScripting.Core;
 --assembly-defines=BattleSystem;
