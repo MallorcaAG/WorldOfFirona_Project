@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
+
+
     [Header("Movement")]
     private float movementSpeed;
     [SerializeField] private float walkSpeed;
@@ -43,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
@@ -51,6 +55,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!IsOwner)
+            return;
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
         PlayerInputs();
@@ -69,11 +75,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!IsOwner)
+            return;
         MovePlayer();
     }
 
     private void PlayerInputs()
     {
+        
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
@@ -89,7 +98,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void StateHandler()
     {
-        if(grounded && Input.GetKey(runKey))
+        
+        if (grounded && Input.GetKey(runKey))
         {
             state = MovementState.sprinting;
             movementSpeed = runSpeed;
@@ -107,6 +117,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
+       
         moveDir = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         if(grounded)
@@ -121,6 +132,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void SpeedControl()
     {
+        
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         if(flatVel.magnitude > movementSpeed)
@@ -132,6 +144,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+      
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
@@ -139,6 +152,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void ResetJump()
     {
+        
         canJump = true;
     }
 }
