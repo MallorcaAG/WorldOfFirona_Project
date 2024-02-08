@@ -370,7 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da5c99a12f8180a49b47b0854e693bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: TestScene - QuestSingleplayer
+  sceneToLoad: Test Scene - Game World
 --- !u!4 &289033394
 Transform:
   m_ObjectHideFlags: 0

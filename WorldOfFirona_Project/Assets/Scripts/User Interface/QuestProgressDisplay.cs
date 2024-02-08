@@ -15,6 +15,6 @@ public class QuestProgressDisplay : MonoBehaviour
         questData = (QuestUIData)data;
 
         title.text = questData.questTitle;
-        desc.text = questData.questDescription;
+        desc.text = questData.questTaskDesc;
     }
 }

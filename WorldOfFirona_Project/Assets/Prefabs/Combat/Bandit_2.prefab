@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b358baa7576c2f74497639afac17c67f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Pill Guy
+  unitName: Scott
   maxHP: 8
   currentHP: 8
   combatSkills:

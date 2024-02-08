@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69eaa053e705cc943827fbeaede2ea57, type: 3}
+  m_Name: KnightQuest
+  m_EditorClassIdentifier: 
+  questID: Q0001
+  questTitle: World Tree Pilgrimage
+  questDescription: Have you seen the World Tree? It's the source of the world's
+    magic. Go over there any say a prayer.
+  questType: 1
+  questTaskDesc: Go to the World Tree
+  questRewardDesc: Fullfillment in Life

@@ -55,9 +55,12 @@ public class NetworkedPlayerMovement : NetworkBehaviour
 
     private void Update()
     {
+        
+
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+
         if (!IsOwner)
             return;
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
         PlayerInputs();
         SpeedControl();
@@ -77,6 +80,7 @@ public class NetworkedPlayerMovement : NetworkBehaviour
     {
         if (!IsOwner)
             return;
+
         MovePlayer();
     }
 

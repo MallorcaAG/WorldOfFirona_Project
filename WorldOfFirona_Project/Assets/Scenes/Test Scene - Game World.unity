@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: ac10492d311d25e4eb388be6c31b8887, type: 2}
   m_LightingSettings: {fileID: 819160961}
 --- !u!196 &4
 NavMeshSettings:
@@ -1889,6 +1889,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Talk
       objectReference: {fileID: 0}
+    - target: {fileID: 8391976449505751359, guid: ab1a6ef6eb2ee3841bac363090d14c51, type: 3}
+      propertyPath: diologueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 0cedf1ccc5d822d4c9f91fc29bdc57a4, type: 2}
     m_RemovedComponents:
     - {fileID: 9218085365703980927, guid: ab1a6ef6eb2ee3841bac363090d14c51, type: 3}
     m_RemovedGameObjects: []
@@ -5554,6 +5558,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 518616823}
     m_Modifications:
+    - target: {fileID: 124118059759823669, guid: 459ff18b53e2b204894386d3ca3f79d3, type: 3}
+      propertyPath: diologueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 2c4b577162d9f02479c972001f609e1d, type: 2}
     - target: {fileID: 703836781271806318, guid: 459ff18b53e2b204894386d3ca3f79d3, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -5614,6 +5622,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Quest
       objectReference: {fileID: 0}
+    - target: {fileID: 8593089896129239913, guid: 459ff18b53e2b204894386d3ca3f79d3, type: 3}
+      propertyPath: questData
+      value: 
+      objectReference: {fileID: 11400000, guid: 42ee621303b541f44b3b5f0b0ee438c9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -5697,7 +5709,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989691504}
-  m_LocalRotation: {x: 0.25185582, y: -0.000000018617197, z: 0.0000000048450306, w: 0.9677648}
+  m_LocalRotation: {x: 0.25185582, y: 0.000000018617195, z: -0.00000000484503, w: 0.9677648}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7292,7 +7304,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1300123864}
-  m_LocalRotation: {x: 0.31851813, y: -0.000000028250124, z: 0.000000009492581, w: 0.9479168}
+  m_LocalRotation: {x: 0.3185181, y: 1.5913202e-15, z: -2.4342525e-16, w: 0.9479168}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7454,6 +7466,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4566927031494226, guid: 00a1229f10e9c6149ac5df04dcaff904, type: 3}
   m_PrefabInstance: {fileID: 1330793907}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1337256619
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1337256621}
+  - component: {fileID: 1337256620}
+  m_Layer: 0
+  m_Name: SceneLoader1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1337256620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337256619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da5c99a12f8180a49b47b0854e693bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: TestScene - CombatSystem
+--- !u!4 &1337256621
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337256619}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1340898824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8462,6 +8519,73 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7919992709469181595, guid: 54b980a459b056e40b4de5008398b04b, type: 3}
   m_PrefabInstance: {fileID: 1520523617}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1527274734
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1527274735}
+  - component: {fileID: 1527274736}
+  - component: {fileID: 1527274737}
+  m_Layer: 0
+  m_Name: CombatTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1527274735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527274734}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 29.276058, y: -2.9239075, z: -207.1685}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1527274736
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527274734}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 5.1087217, z: 12.074905}
+  m_Center: {x: 0, y: 2.0543609, z: 1.0916519}
+--- !u!114 &1527274737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527274734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4a57043a7db104582e11fc2bb716d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: {fileID: 1337256620}
 --- !u!1 &1533272382
 GameObject:
   m_ObjectHideFlags: 0
@@ -11273,6 +11397,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Talk_1
       objectReference: {fileID: 0}
+    - target: {fileID: 8391976449505751359, guid: ab1a6ef6eb2ee3841bac363090d14c51, type: 3}
+      propertyPath: diologueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 4898caa12d9d3984ba5e1a23366e2381, type: 2}
     m_RemovedComponents:
     - {fileID: 9218085365703980927, guid: ab1a6ef6eb2ee3841bac363090d14c51, type: 3}
     m_RemovedGameObjects: []
