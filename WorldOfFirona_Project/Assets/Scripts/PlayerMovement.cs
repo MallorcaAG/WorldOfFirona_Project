@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpCooldown;
     [SerializeField] private float airMultiplier;
     bool canJump;
-
+    
     [Header("KeyBinds")]
     [SerializeField] KeyCode jumpKey = KeyCode.Space;
     [SerializeField] KeyCode runKey = KeyCode.LeftShift;
@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody rb;
 
+    [Header("Stamina Settings")]
     public Image StaminaBar;
 
     public float Stamina, MaxStamina;

@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: b0dee507e3a899a4e9ec9ee9ebd307ee
   - enabled: 1
+    path: Assets/Scenes/Test Scene - Game World.unity
+    guid: bdaffc02670aa2d49a905443e867b509
+  - enabled: 1
     path: Assets/Scenes/TestScene-QuestMultiplayer.unity
     guid: e541141bd3accce4cb9f8a681d13d74e
-  - enabled: 1
-    path: Assets/Scenes/TestScene - QuestSingleplayer.unity
-    guid: fd9f95418775dea4abc33e4c4bca81f5
   m_configObjects: {}
